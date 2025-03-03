@@ -2,6 +2,7 @@ import { db } from "../_lib/prisma";
 import { DataTable } from "../_components/ui/data-table";
 import { transactionColumns } from "./_colunms";
 import AddTransactionButton from "../_components/add-transaction-button";
+import NavBar from "../_components/navbar";
 
 const TransactionsPage = async () => {
   // Acessar meu banco de dados
@@ -10,15 +11,18 @@ const TransactionsPage = async () => {
   //   console.log(transactions);
 
   return (
-    <div className="space-y-6 p-6">
-      {/* TItulo */}
-      <header className="flex w-full items-center justify-between">
-        <h1 className="text-2xl font-bold">Transações</h1>
-        <AddTransactionButton />
-      </header>
+    <>
+      <NavBar />
+      <div className="space-y-6 p-6">
+        {/* TItulo */}
+        <header className="flex w-full items-center justify-between">
+          <h1 className="text-2xl font-bold">Transações</h1>
+          <AddTransactionButton />
+        </header>
 
-      <DataTable columns={transactionColumns} data={transactions} />
-    </div>
+        <DataTable columns={transactionColumns} data={transactions} />
+      </div>
+    </>
   );
 };
 
