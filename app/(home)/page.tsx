@@ -31,7 +31,7 @@ import NavBar from "../_components/navbar";
 import SummaryCards from "./_components/summary-cards";
 import TimeSelect from "./_components/time-select";
 
-export default async function Home({ searchParams: { month } }) {
+export default async function Home() {
   const { userId } = await auth();
 
   if (!userId) {
@@ -46,7 +46,7 @@ export default async function Home({ searchParams: { month } }) {
           <h1 className="text-2xl font-bold">Dashboard</h1>
           <TimeSelect />
         </div>
-        <SummaryCards month={month} />
+        <SummaryCards />
       </div>
     </>
   );
