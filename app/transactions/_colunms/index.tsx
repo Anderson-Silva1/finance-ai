@@ -3,16 +3,12 @@
 import { Transaction } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import TransactionTypeBadge from "../_components/type-badge";
-import { Button } from "@/app/_components/ui/button";
-import { TrashIcon } from "lucide-react";
 import {
   TRANSACTION_CATEGORY_LABELS,
   TRANSACTION_PAYMENT_METHOD_LABELS,
 } from "@/app/_constants/transactions";
 import EditTransactionButton from "../_components/edit-transaction-button";
-
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
+import DeleteTransactionButton from "../_components/delete-transaction-button";
 
 export const transactionColumns: ColumnDef<Transaction>[] = [
   {
@@ -34,45 +30,37 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
   },
   {
     accessorKey: "paymentMethod",
-    header: "Método de pagamento",
+    header: "Método de Pagamento",
     cell: ({ row: { original: transaction } }) =>
       TRANSACTION_PAYMENT_METHOD_LABELS[transaction.paymentMethod],
   },
   {
     accessorKey: "date",
     header: "Data",
-    cell: ({ row: { original: transaction } }) => {
-      return new Date(transaction.date).toLocaleDateString("pt-BR", {
+    cell: ({ row: { original: transaction } }) =>
+      new Date(transaction.date).toLocaleDateString("pt-BR", {
         day: "2-digit",
         month: "long",
         year: "numeric",
-      });
-    },
+      }),
   },
   {
     accessorKey: "amount",
     header: "Valor",
-    cell: ({ row: { original: transaction } }) => {
-      return Intl.NumberFormat("pt-BR", {
+    cell: ({ row: { original: transaction } }) =>
+      new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
-      }).format(Number(transaction.amount));
-    },
+      }).format(Number(transaction.amount)),
   },
   {
     accessorKey: "actions",
-    header: "",
+    header: "Ações",
     cell: ({ row: { original: transaction } }) => {
       return (
         <div className="space-x-1">
           <EditTransactionButton transaction={transaction} />
-          <Button
-            variant={"ghost"}
-            size="icon"
-            className="text-muted-foreground"
-          >
-            <TrashIcon />
-          </Button>
+          <DeleteTransactionButton transactionId={transaction.id} />
         </div>
       );
     },

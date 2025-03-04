@@ -1,8 +1,9 @@
 "use client";
-import UpsertTransitionDialog from "./uspert-transaction-dialog";
-import { Button } from "./ui/button";
+
 import { ArrowDownUpIcon } from "lucide-react";
+import { Button } from "./ui/button";
 import { useState } from "react";
+import UpsertTransactionDialog from "./uspert-transaction-dialog";
 
 const AddTransactionButton = () => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
@@ -13,9 +14,10 @@ const AddTransactionButton = () => {
         className="rounded-full font-bold"
         onClick={() => setDialogIsOpen(true)}
       >
-        Adicionar Transação <ArrowDownUpIcon />
+        Adicionar transação
+        <ArrowDownUpIcon />
       </Button>
-      <UpsertTransitionDialog
+      <UpsertTransactionDialog
         isOpen={dialogIsOpen}
         setIsOpen={setDialogIsOpen}
       />

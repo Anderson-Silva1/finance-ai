@@ -19,19 +19,19 @@ const TransactionsPage = async () => {
     },
   });
 
-  //   console.log(transactions);
-
   return (
     <>
       <NavBar />
       <div className="space-y-6 p-6">
-        {/* TItulo */}
-        <header className="flex w-full items-center justify-between">
+        {/* Título */}
+        <header className="flex w-full flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
           <h1 className="text-2xl font-bold">Transações</h1>
           <AddTransactionButton />
         </header>
 
-        <DataTable columns={transactionColumns} data={transactions} />
+        <div className="overflow-x-auto">
+          <DataTable columns={transactionColumns} data={transactions} />
+        </div>
       </div>
     </>
   );
