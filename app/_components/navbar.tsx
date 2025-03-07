@@ -68,7 +68,7 @@ const NavBar = () => {
       </div>
 
       {/* Menu para telas grandes */}
-      <div className="hidden items-center gap-10 sm:flex">
+      <div className="hidden items-center gap-10 lg:flex">
         <Link
           href="/"
           className={
@@ -102,10 +102,10 @@ const NavBar = () => {
       </div>
 
       {/* Botão de usuário */}
-      <UserButton showName />
+      <UserButton />
 
       {/* Menu Hambúrguer para telas pequenas */}
-      <div className="flex items-center sm:hidden">
+      <div className="flex items-center lg:hidden">
         <button
           className="text-muted-foreground"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -116,7 +116,7 @@ const NavBar = () => {
 
       {/* Menu de navegação para dispositivos móveis */}
       {isMenuOpen && (
-        <div className="absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-center justify-center bg-white sm:hidden">
+        <div className="absolute left-0 top-0 z-10 flex h-screen w-full flex-col items-center justify-center bg-slate-900 lg:hidden">
           <Link
             href="/"
             className="py-2 text-xl text-primary"

@@ -14,7 +14,7 @@ const LoginPage = async () => {
 
   return (
     <>
-      <div className="grid h-full grid-cols-2">
+      <div className="grid-row flex h-full flex-col-reverse md:grid md:grid-cols-2">
         {/* Texto - ESQUERDA */}
         <div className="flex h-full max-w-[600px] flex-col justify-center space-y-5 p-12">
           <Image src="/logo.png" alt="Finance AI" width={180} height={40} />

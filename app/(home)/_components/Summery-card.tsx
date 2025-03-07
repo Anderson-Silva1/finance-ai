@@ -26,7 +26,9 @@ const SummeryCard = async ({
           {title}
         </p>
       </CardHeader>
-      <CardContent className="flex justify-between">
+      <CardContent
+        className={`${size === "large" ? "flex flex-col justify-between gap-10 sm:flex-row" : "flex justify-between"}`}
+      >
         <p
           className={`${size === "small" ? "text-2xl" : "text-xl sm:text-4xl"}`}
         >
